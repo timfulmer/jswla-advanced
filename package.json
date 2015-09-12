@@ -1,0 +1,26 @@
+{
+  "name": "jswla-advanced",
+  "version": "1.0.0",
+  "description": "Sample code for for the JavaScript Workshop LA advanced course.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timfulmer/jswla-advanced.git"
+  },
+  "author": "timfulmer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timfulmer/jswla-advanced/issues"
+  },
+  "homepage": "https://github.com/timfulmer/jswla-advanced#readme",
+  "devDependencies": {
+    "http-server": "^0.8.0"
+  },
+  "scripts":{
+    "postinstall": "bower install",
+    "start": "http-server -a 0.0.0.0 -p 8000"
+  }
+}

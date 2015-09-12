@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="roshamboApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Roshambo</title>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="./app.js"></script>
+  <style>
+    .roshambo-selection{
+      width: 200px;
+      height: 200px;
+    }
+    .roshambo-outcome{
+      height: 600px;
+    }
+    .roshambo-outcome > div{
+      padding-top: 50px;
+    }
+    .roshambo-outcome > .single > span{
+      font-weight: bold;
+      font-size: larger;
+      display: inline-block;
+      text-align: center;
+      width: 300px;
+    }
+    .roshambo-outcome > div > span > img{
+      width: 300px;
+      height: 300px;
+    }
+    .roshambo-outcome > .double{
+      font-weight: bold;
+      font-size: x-large;
+      text-align: center;
+      width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div ng-controller="RoshamboCtrl">
+    <div ng-show="!outcome">
+      <img ng-src="{{selection.src}}" ng-click="throwSelected()"/>
+    </div>
+    <div class="roshambo-outcome" ng-show="outcome">
+      <div class="double"><span>{{outcome.announce()}}</span></div>
+      <div class="single">
+        <span>Player</span><span>Machine</span>
+      </div>
+      <div>
+        <span><img ng-src="{{outcome.playerSrc}}"/></span>
+        <span><img ng-src="{{outcome.opponentSrc}}"/></span>
+      </div>
+      <div class="double">
+        Play Again!
+      </div>
+    </div>
+    <div>
+      <span ng-repeat="selection in roshambo">
+        <img class="roshambo-selection" ng-src="{{selection.src}}" ng-click="selectThrow(selection)"/>
+      </span>
+    </div>
+  </div>
+</body>
+</html>

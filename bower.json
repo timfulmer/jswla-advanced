@@ -1,0 +1,22 @@
+{
+  "name": "jswla-advanced",
+  "version": "0.0.0",
+  "homepage": "https://github.com/timfulmer/jswla-advanced",
+  "authors": [
+    "timfulmer"
+  ],
+  "description": "Sample code for for the JavaScript Workshop LA advanced course.",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.5",
+    "bootstrap": "~3.3.5"
+  }
+}

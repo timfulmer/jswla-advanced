@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="roshamboApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Roshambo</title>
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="./app.js"></script>
+  <style>
+    .roshambo-selected{
+      width: 600px;
+      height: 600px;
+    }
+    .roshambo-selection{
+      width: 200px;
+      height: 200px;
+    }
+    .roshambo-outcome{
+      height: 600px;
+    }
+    .roshambo-outcome > div{
+      padding-top: 50px;
+    }
+    .roshambo-outcome > .single > span{
+      font-weight: bold;
+      font-size: larger;
+      display: inline-block;
+      text-align: center;
+      width: 300px;
+      height: 300px;
+    }
+    .roshambo-outcome > div > span > img{
+      width: 300px;
+      height: 300px;
+    }
+    .roshambo-outcome > .double{
+      font-weight: bold;
+      font-size: x-large;
+      text-align: center;
+      width: 600px;
+      height: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" ng-controller="RoshamboCtrl">
+    <div class="row">
+      <div class="col-md-6">
+        <div ng-show="!outcome">
+          <img class="center-block roshambo-selected" ng-src="{{selection.src}}" ng-click="throwSelected()"/>
+        </div>
+        <div class="roshambo-outcome" ng-show="outcome">
+          <div class="double"><span>{{outcome.announce()}}</span></div>
+          <div class="single">
+            <span>Player</span><span>Machine</span>
+          </div>
+          <div>
+            <span><img ng-src="{{outcome.playerSrc}}"/></span>
+            <span><img ng-src="{{outcome.opponentSrc}}"/></span>
+          </div>
+          <div class="double">
+            Play Again!
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-6 col-md-push-1" ng-repeat="selection in roshambo">
+          <img class="roshambo-selection" ng-src="{{selection.src}}" ng-click="selectThrow(selection)"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
